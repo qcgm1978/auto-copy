@@ -170,6 +170,7 @@ function autoCopy(e) {
   var comment, count=0, flag=true;
   try {
     s = window.getSelection();
+    //  replace space for code correctness
     text = s.toString().replace(/ /g,' ');
 
     //-------------------------------------------------------------------------
