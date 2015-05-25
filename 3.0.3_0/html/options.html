@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>Auto Copy: Options</title>
+
+    <!--<script src="/js/jquery.tools.min.js"></script>-->
+    <script type="text/javascript" src="/js/options.js"></script>
+
+    <link rel="stylesheet" href="/css/options.css" type="text/css">
+  </head>
+
+  <body>
+    <h1>
+      <img id="logo" src="/assets/autoCopy-64.png" width="64" height="64" alt="logo">
+      Auto Copy - Options
+    </h1>
+    <!--http://www.mdawson.net/csstips/purecsstabs.php-->
+    <div class="tabGroup">
+      <input type="radio" name="tabGroup1" id="rad1" class="tab1" checked="checked">
+      <label for="rad1">Settings</label>
+      <input type="radio" name="tabGroup1" id="rad2" class="tab2">
+      <label for="rad2">Blacklist</label>
+      <input type="radio" name="tabGroup1" id="rad3" class="tab3">
+      <label for="rad3">About</label>
+
+      <br>
+
+      <div class="tab tab1">
+        <input class="autosave" type="checkbox" id="eitb"> Enable in text boxes
+        <br>
+        <!---->
+        <input class="autosave" type="checkbox" id="pomc"> Paste on middle click
+        <br>
+        <!---->
+        <!-- Working around an issue in Chrome 6 -->
+        <!--
+        <input type="checkbox" id="capt" onclick="fixUpIncludeUrl();"> Copy without formatting
+        -->
+        <input class="autosave" type="checkbox" disabled="disabled" checked="checked" id="capt"> Copy without formatting <span class="note">(Note: Due to a change in Chrome permissions since version 6 this option must be enabled.)</span>
+    
+        <br>
+        <input class="autosave" type="checkbox" id="iurl"> Include an informational comment <span class="note">(Note: this option requires copy without formatting.)</span>
+        <div id="diviurlap" class="indent">
+          <input class="autosave" type="checkbox" name="iurlewc" id="iurlewc"> <span id="commentCount" >Only include the comment if more than <input class="autosave" title="Valid values are 1 to 99" type="text" maxlength="2" size="1" id="iurlcount" value="5"> words are selected</span>
+          <br>
+          <input class="autosave" type="radio" name="iurlap" id="iurlp"> Add the comment to the beginning of the copied text
+          <br>
+          <input class="autosave" type="radio" name="iurlap" id="iurla" checked="checked"> Add the comment to the end of the copied text
+          <br>
+          Format: <input class="autosave" type="text" size="64" id="iurltext" value="$crlfCopied from: $title - <$url>"> <span class="note">(Default: $crlfCopied from: $title - <$url>)</span>
+          <div class="indent note larger">
+            The comment can contain the following variables:
+            <br>
+            <div class="indent">
+              <b>$title</b> - Document title 
+              <div class="indent">Example: <b>stratus nine: auto copy</b></div>
+              <br>
+              <b>$url</b> - Document URL
+              <div class="indent">Example: <b>http://stratusnine.com/software/auto-copy/</b></div>
+              <br>
+              <b>$crlf</b> - Inserts a blank line
+            </div>
+          </div>
+    
+        </div>
+        <br>
+        <!--
+        <button id="saveButton">Save &amp; Close</button>
+        -->
+      </div>
+      <div class="tab tab2">
+        <!--
+        <select id="blsel" multiple="multiple" size="5">
+          <option value="docs.google.com">docs.google.com</option>
+        </select>
+        -->
+        <div id="blacklist">
+        </div>
+        <div>
+          Some sites, like Google Docs, have issues with Auto Copy.  The blacklist allows you to define sites that Auto Copy will be disabled on.
+        </div>
+        <div class="clear">
+          <button id="addBtn">Add New Entry</button>
+          <button id="removeBtn">Remove Selected Entries</button>
+        </div>
+      </div>
+      <div class="tab tab3">
+        <p><a target="_blank" href="http://stratusnine.com/software/auto-copy/">Auto Copy</a> is a Chrome extension that will automatically copy any selected text to the clipboard.</p>
+
+        <h2>Features</h2>
+        <p>Auto Copy has several features that are configurable from the options page:</p>
+
+        <ul>
+          <li>Enable/disable auto copy for text fields</li>
+          <li>Include a comment with copied text. The comment can be formated and has macro expansion.</li>
+          <li>Paste on middle-click</li>
+          <li>Blacklists to allow disabling of the extension on certain websites</li>
+        </ul>
+
+        <h2>Notes</h2>
+        <p>The extension only works on pages with http:// or https:// in the URL. Also, content-scripts are automatically disabled in the Chrome Web Store for security reasons. Please keep this in mind when testing the extension.</p>
+
+        <p>When an option is changed, web pages must be reloaded before the changed option will take effect.</p>
+
+        <h2>Contact</h2>
+        <p>If you have a feature request, bug fix, or general feedback please feel free to get in touch with me on <a target="_blank" href="https://twitter.com/stratus9">twitter</a> or <a target="_blank" href="mailto:jamiephill@gmail.com">email</a>.
+      </div>
+    </div>
+    <div id="overlay">
+      <div>
+        <span>Domain name: <span id="addError"></span></span>
+        <br>
+        <input type="text" size="64" id="domaintext">
+        <button id="addOverlayBtn">Add</button>
+        <button id="cancelOverlayBtn">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
