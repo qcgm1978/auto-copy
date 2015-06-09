@@ -8,7 +8,7 @@ var opts = {
   'includeUrlText'                : "",
   'includeUrlCommentCountEnabled' : false,
   'includeUrlCommentCount'        : 5,
-  'mouseDownTarget'               : null,
+  'mouseDownTarget'               : {},
   'blackList'                     : ""
 };
 
